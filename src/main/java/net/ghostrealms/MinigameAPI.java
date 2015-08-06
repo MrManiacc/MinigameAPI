@@ -24,13 +24,11 @@ public class MinigameAPI extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        instance = null;
+        for(Minigame minigame : registeredMinigames) minigame.unload();
     }
 
     /**
      * Allows to hook into the minigameAPI
-     *
-     * @return api instance
      */
     public static final MinigameAPI getInstance() {
         return instance;
@@ -42,7 +40,7 @@ public class MinigameAPI extends JavaPlugin {
     public void registerMinigame(Minigame minigame) {
         if (!registeredMinigames.contains(minigame)){
             registeredMinigames.add(minigame);
-            getLogger().log(Level.INFO, "Minigame, " + minigame.getName() + " v" + minigame.getVersion() + " loaded!");
+            getLogger().log(Level.INFO, minigame.getName() + " v" + minigame.getVersion() + " has been loaded into the GhostRealmsMinigameAPI!");
         }
     }
 }
