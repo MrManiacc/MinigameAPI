@@ -1,29 +1,31 @@
 ## MinigameAPI | v 0.0.2
 
 
-MinigameAPI is a useful resource for Spigot/CraftBukkit developers to use. It aims to create a unified system for developers looking to make minigames.
+MinigameAPI is a useful resource for Spigot/Bukkit developers to use. It aims to create a unified system for developers looking to make minigames.
 The sole purpose is to make the development process of minigames, quick and easy (if possible).
 
 
 # Developer(s)
 
 * MrManiacc - Lead Developer
+* AlphaTech - Contributor
 
 
 # Commands and Permissions
 * /enablemg <Minigame name> - Allows for users with the correct permission ```MinigameAPI.enablemg``` to enable a minigame, this will ask to force currently enabled minigame to shutdown (if there are any).
 * /disablemg - Forces the current minigame to shutdown, if there's one running and if the user has the correct permission ```MinigameAPI.disablemg```.
-* /restartmg - Restarts the minigame in a bruteforce fasion, if the user sending the command has permission ```MinigameAPI.restartmg```.
+* /restartmg - Restarts the minigame in a brute-force fashion, if the user sending the command has permission ```MinigameAPI.restartmg```.
 
 
 # Planned features
-* Easy database connection and sql queries.
-* Saving and data easily to a custom yaml configurgiation, and or a xaml.
-* Loading data from sql, yaml, and xaml easily and abstractly.
-* Adding useful minigame funciality i.e. adding a way to create holograms, leaderboards etc.
+* Easy database connection and SQL queries.
+* Saving and data easily to a custom yaml configuration, and or a xaml.
+* Loading data from SQL, yaml, and xaml easily and abstractly.
+* Adding useful minigame functionality i.e. adding a way to create holograms, leaderboards etc.
+* Command component system i.e. having a base command and then separate components for arguments for easy command system.
 
 # Current features
-* Developers can easily hook into the api and create a minigame instance.
+* Developers can easily hook into the API and create a minigame instance.
 * Component system (see 'What is the Component System'
 * Timer component, which allows you to easily create countdown components or anything that needs to be updated a certain amount of time per a tick
 * Listener component, which allows to create sub listeners components that can be enabled or disabled. They can be registered from the Listener component it's self easily.
