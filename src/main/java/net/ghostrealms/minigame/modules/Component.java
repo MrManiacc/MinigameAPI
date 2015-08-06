@@ -10,16 +10,37 @@ public abstract class Component {
     private boolean isEnabled;
     private String name;
     private Component parent;
-    private List<Component> subComponents = new ArrayList<Component>();
+    protected List<Component> components = new ArrayList<Component>();
+    private Thread upateThread;
 
     public Component(String name, boolean defaultEnable) {
         this.name = name;
         this.isEnabled = defaultEnable;
+        setState(defaultEnable);
     }
 
     public Component(Component Parent, String name, boolean defaultEnable) {
         this(name, defaultEnable);
         this.parent = Parent;
+    }
+
+    /**
+     * Where all of the loading code etc. should be put.
+     */
+    public void load(){
+    }
+
+    /**
+     * Where all of the saving code etc. should be put.
+     */
+    public void unload(){
+        for(Component c : components) c.unload();
+    }
+
+    /**
+     * Method gets updated if component is in the timer list
+     */
+    public void update(){
     }
 
     /**
@@ -40,16 +61,16 @@ public abstract class Component {
      * Adds a sub component to a the current component
      */
     public void addComponenet(Component component) {
-        if (subComponents.contains(component)) return;
-        subComponents.add(component);
+        if (components.contains(component)) return;
+        components.add(component);
     }
 
     /**
      * Removes sub component from current component
      */
     public void removeComponenet(Component component) {
-        if (subComponents.contains(component)) return;
-        subComponents.remove(component);
+        if (components.contains(component)) return;
+        components.remove(component);
     }
 
     /**
@@ -70,7 +91,7 @@ public abstract class Component {
      * Returns true if the current component contains the request component
      */
     public boolean containsComponent(String name) {
-        for (Component c : subComponents) if (c.getName().equals(name)) return true;
+        for (Component c : components) if (c.getName().equals(name)) return true;
         return false;
     }
 
@@ -79,7 +100,7 @@ public abstract class Component {
      */
     public Component getComponent(String name) {
         if (containsComponent(name))
-            for (Component c : subComponents) if (c.getName().equals(name)) return c;
+            for (Component c : components) if (c.getName().equals(name)) return c;
         return null;
     }
 

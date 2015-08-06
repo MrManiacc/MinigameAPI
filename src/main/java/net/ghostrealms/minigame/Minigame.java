@@ -16,20 +16,24 @@ public abstract class Minigame {
     private JavaPlugin plugin;
 
     public Minigame(JavaPlugin plugin) {
-        mainComponent = new MainComponent();
         this.name = plugin.getDescription().getName();
         this.version = plugin.getDescription().getVersion();
         this.plugin = plugin;
+        mainComponent = new MainComponent();
     }
 
-    public JavaPlugin getPlugin(){
+    public JavaPlugin getPlugin() {
         return plugin;
     }
 
-    protected Component getMainComponent() { return mainComponent; }
+    protected Component getMainComponent() {
+        return mainComponent;
+    }
 
-    public void setEnabled(boolean b){
+    public void setEnabled(boolean b) {
         this.enabled = b;
+        if(b == true) load();
+        else unload();
     }
 
     public boolean isEnabled() {
@@ -44,10 +48,9 @@ public abstract class Minigame {
         return version;
     }
 
-    public abstract void load();
+    protected abstract void load();
 
-    public abstract void unload();
-
+    protected abstract void unload();
 
 
 }
