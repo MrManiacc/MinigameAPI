@@ -1,4 +1,4 @@
-## MinigameAPI | v 0.0.2
+## MinigameAPI | v0.0.2
 
 
 MinigameAPI is a useful resource for Spigot/Bukkit developers to use. It aims to create a unified system for developers looking to make minigames.
@@ -28,7 +28,7 @@ The sole purpose of the MinigameAPI is to make the development process of miniga
 
 # Current features
 * Developers can easily hook into the API and create a minigame instance.
-* Component system (see '[What is the Component System](https://github.com/MrManiacc/MinigameAPI#what-is-the-component-system)').
+* Component system (see '[What is the Component System](#what-is-the-component-system)').
 * Timer component, which allows you to easily create a countdown component or anything that needs to be updated a certain amount of time per a tick.
 * Listener component, which allows to create sub listeners components that can be enabled or disabled. They can be registered from the Listener component it's self easily.
 
