@@ -25,6 +25,7 @@ The sole purpose is to make the development process of minigames, quick and easy
 * Command component system i.e. having a base command and then separate components for arguments for easy command system.
 * Added a ci build system, along with a maven repo.
 * Youtube tutorial on how to use the minigameAPI, and or a full Youtube series on creating a minigame with the API. 
+* Add javadocs.
 
 # Current features
 * Developers can easily hook into the API and create a minigame instance.
@@ -37,8 +38,10 @@ The the idea behind the component system is to make it easy for developers to be
 
 # How to use?
 1. Download the lastes build from the jars folder.
-2. Make a spigot/bukkit plugin, for either intellij (https://www.spigotmc.org/wiki/creating-a-blank-spigot-plugin-in-intellijidea/) or eclispe (https://www.spigotmc.org/wiki/creating-a-blank-spigot-plugin-in-eclipse/
+2. Make a spigot/bukkit plugin, for either intellij or eclispe.
 3. Add the 'Minigame(CurrentVersion).jar' to your build path.
 4. Create a new class that extends 'Minigame'
-5. Inside your main class, add the following to the onEnable 'MinigameAPI.getInstance().registerMinigame(new YOUR_MINIGAME(this));' and 'MinigameAPI.getInstance().getMinigame(this.getDescription().getName()).setEnabled(true);'
-6. Replace 'YOU_MINIGAME' with the class you created that extends 'Minigame'
+5. Add the following to your 'onEnable' method:
+  MinigameAPI.getInstance().registerMinigame(new GetToTheZoneMinigame(this));
+  MinigameAPI.getInstance().getMinigame(this.getDescription().getName()).setEnabled(true);
+6. When compiling your plugin don't forget to have the 'Minigame(CurrentVersion).jar' inside your plugin server!
