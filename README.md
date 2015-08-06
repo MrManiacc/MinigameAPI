@@ -2,10 +2,10 @@
 
 
 MinigameAPI is a useful resource for Spigot/Bukkit developers to use. It aims to create a unified system for developers looking to make minigames.
-The sole purpose is to make the development process of minigames, quick and easy (if possible).
+The sole purpose of the MinigameAPI is to make the development process of minigames, quick and easy (if possible).
 
 
-# Developer(s)
+# Developers
 
 * MrManiacc - Lead Developer
 * AlphaTech - Contributor
@@ -18,19 +18,18 @@ The sole purpose is to make the development process of minigames, quick and easy
 
 
 # Planned features
-* Easy database connection and SQL queries.
-* Saving and data easily to a custom yaml configuration, and or a xaml.
-* Loading data from SQL, yaml, and xaml easily and abstractly.
+* Easy database connection and using SQL queries.
+* Save and retrieve data quickly and easily to and from a custom yaml or xaml configuration.
 * Adding useful minigame functionality i.e. adding a way to create holograms, leaderboards etc.
 * Command component system i.e. having a base command and then separate components for arguments for easy command system.
 * Added a ci build system, along with a maven repo.
-* Youtube tutorial on how to use the minigameAPI, and or a full Youtube series on creating a minigame with the API. 
-* Add javadocs.
+* YouTube tutorial on how to use the MinigameAPI, and/or a full YouTube series on creating a minigame using the API. 
+* Add Javadocs.
 
 # Current features
 * Developers can easily hook into the API and create a minigame instance.
-* Component system (see 'What is the Component System'
-* Timer component, which allows you to easily create countdown components or anything that needs to be updated a certain amount of time per a tick
+* Component system (see '[What is the Component System](https://github.com/MrManiacc/MinigameAPI#what-is-the-component-system)').
+* Timer component, which allows you to easily create a countdown component or anything that needs to be updated a certain amount of time per a tick.
 * Listener component, which allows to create sub listeners components that can be enabled or disabled. They can be registered from the Listener component it's self easily.
 
 # What is the Component System?
@@ -42,6 +41,6 @@ The the idea behind the component system is to make it easy for developers to be
 3. Add the 'Minigame(CurrentVersion).jar' to your build path.
 4. Create a new class that extends 'Minigame'
 5. Add the following to your 'onEnable' method:
-  MinigameAPI.getInstance().registerMinigame(new GetToTheZoneMinigame(this));
-  MinigameAPI.getInstance().getMinigame(this.getDescription().getName()).setEnabled(true);
-6. When compiling your plugin don't forget to have the 'Minigame(CurrentVersion).jar' inside your plugin server!
+  1. MinigameAPI.getInstance().registerMinigame(new GetToTheZoneMinigame(this));
+  2. MinigameAPI.getInstance().getMinigame(this.getDescription().getName()).setEnabled(true);
+6. When compiling your plugin, don't forget to have the 'Minigame(CurrentVersion).jar' plugin running on your server instance!
