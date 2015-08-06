@@ -20,6 +20,7 @@ public class TimerComponent extends Component {
     }
 
     public void load() {
+        super.load();
         id = plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
             public void run() {
                 if (!components.isEmpty())
