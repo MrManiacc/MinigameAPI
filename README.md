@@ -1,5 +1,5 @@
 ## MinigameAPI | v0.0.2
-![Build Status](https://travis-ci.org/MrManiacc/MinigameAPI.svg?branch=master)
+[![Build Status](https://travis-ci.org/MrManiacc/MinigameAPI.svg?branch=master)](https://travis-ci.org/MrManiacc/MinigameAPI)
 
 MinigameAPI is a useful resource for Spigot/Bukkit developers to use. It aims to create a unified system for developers looking to make minigames.
 The sole purpose of the MinigameAPI is to make the development process of minigames, quick and easy (if possible).
