@@ -23,6 +23,8 @@ The sole purpose is to make the development process of minigames, quick and easy
 * Loading data from SQL, yaml, and xaml easily and abstractly.
 * Adding useful minigame functionality i.e. adding a way to create holograms, leaderboards etc.
 * Command component system i.e. having a base command and then separate components for arguments for easy command system.
+* Added a ci build system, along with a maven repo.
+* Youtube tutorial on how to use the minigameAPI, and or a full Youtube series on creating a minigame with the API. 
 
 # Current features
 * Developers can easily hook into the API and create a minigame instance.
@@ -32,3 +34,11 @@ The sole purpose is to make the development process of minigames, quick and easy
 
 # What is the Component System?
 The the idea behind the component system is to make it easy for developers to be able to use certain features of the plugin all together. What does that mean? That means you can easily find another component based on the name. So what? Well with being able to get any component from another component is pretty powerful, let me give you an example. There is a countdown-timer component and you need to access it in a event listener class, well yes of course you just pass it in the constructor, but it gets sloppy sometimes. The component system allows for disabling certain components, reloading them etc. Each component has children of sub-components, they can be accessed via their name. You can cast those components to what ever you need to and easily access it. 
+
+# How to use?
+1. Download the lastes build from the jars folder.
+2. Make a spigot/bukkit plugin, for either intellij (https://www.spigotmc.org/wiki/creating-a-blank-spigot-plugin-in-intellijidea/) or eclispe (https://www.spigotmc.org/wiki/creating-a-blank-spigot-plugin-in-eclipse/
+3. Add the 'Minigame(CurrentVersion).jar' to your build path.
+4. Create a new class that extends 'Minigame'
+5. Inside your main class, add the following to the onEnable 'MinigameAPI.getInstance().registerMinigame(new YOUR_MINIGAME(this));' and 'MinigameAPI.getInstance().getMinigame(this.getDescription().getName()).setEnabled(true);'
+6. Replace 'YOU_MINIGAME' with the class you created that extends 'Minigame'
