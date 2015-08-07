@@ -36,6 +36,7 @@ public class MinigameAPI extends JavaPlugin {
 
     /**
      * Allows to hook into the minigameAPI
+     * @return minigameAPI instance
      */
     public static final MinigameAPI getInstance() {
         return instance;
@@ -43,6 +44,7 @@ public class MinigameAPI extends JavaPlugin {
 
     /**
      * Allows for a the registration of a minigame
+     * @param minigame the minigame to register
      */
     public void registerMinigame(Minigame minigame) {
         if (!registeredMinigames.containsValue(minigame)){
@@ -50,6 +52,12 @@ public class MinigameAPI extends JavaPlugin {
             getLogger().log(Level.INFO, minigame.getName() + " v" + minigame.getVersion() + " has been loaded into the GhostRealmsMinigameAPI!");
         }
     }
+
+    /**
+     * Returns the minigame with the specified name
+     * @param name the name of the minigame you wish to get
+     * @return registeredMinigames.get(name)
+     */
     public Minigame getMinigame(String name){
         return registeredMinigames.get(name);
     }
