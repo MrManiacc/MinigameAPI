@@ -53,5 +53,4 @@ The idea behind the component system is to make it easy for developers to be abl
 # MCStats
 All plugin details and statistics can be viewed on our [MCStats Plugin Page](http://mcstats.org/plugin/RealmsMinigameAPI).
 
-# Why is this project on hold?
 
