@@ -47,3 +47,6 @@ The idea behind the component system is to make it easy for developers to be abl
   1. MinigameAPI.getInstance().registerMinigame(new GetToTheZoneMinigame(this));
   2. MinigameAPI.getInstance().getMinigame(this.getDescription().getName()).setEnabled(true);
 6. When compiling your plugin, don't forget to have the 'Minigame(CurrentVersion).jar' plugin running on your server instance!
+
+# MCStats
+All plugin details and statistics can be viewed on our MCStats [Plugin Page](http://mcstats.org/plugin/RealmsMinigameAPI).
