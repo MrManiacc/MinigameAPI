@@ -1,10 +1,9 @@
 package net.ghostrealms.minigame.modules.Components;
 
 import net.ghostrealms.minigame.modules.Component;
+
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.logging.Level;
 
 /**
  * Created by James on 8/6/2015.
@@ -24,8 +23,8 @@ public class ListenerComponent extends Component {
             if (c instanceof Listener) {
                 if (c.isEnabled())
                     plugin.getServer().getPluginManager().registerEvents((Listener) c, plugin);
-
             }
         }
     }
 }
+
