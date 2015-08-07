@@ -17,26 +17,32 @@ public class MinigameAPI extends JavaPlugin {
 
     private HashMap<String, Minigame> registeredMinigames;
 
-    @Override
+    /**
+     * Creates the instance and the Minigame HashMap handler.
+     */
     public void onEnable() {
         this.registeredMinigames = new HashMap<String, Minigame>();
         instance = this;
     }
 
-    @Override
+    /**
+     * Disables all of the minigames.
+     */
     public void onDisable() {
         for(Minigame minigame : registeredMinigames.values()) minigame.setEnabled(false);
     }
 
     /**
-     * Allows to hook into the minigameAPI
+     * Hooks into the MinigameAPI.
+     * @return instance
      */
     public static final MinigameAPI getInstance() {
         return instance;
     }
 
     /**
-     * Allows for a the registration of a minigame
+     * Registers the minigame if it is not already registered.
+     * @param minigame the minigame to be registered
      */
     public void registerMinigame(Minigame minigame) {
         if (!registeredMinigames.containsValue(minigame)){
@@ -44,6 +50,12 @@ public class MinigameAPI extends JavaPlugin {
             getLogger().log(Level.INFO, minigame.getName() + " v" + minigame.getVersion() + " has been loaded into the GhostRealmsMinigameAPI!");
         }
     }
+
+    /**
+     * Returns the minigame with the specific name.
+     * @param name the name of the minigame to get
+     * @return the minigame specified
+     */
     public Minigame getMinigame(String name){
         return registeredMinigames.get(name);
     }

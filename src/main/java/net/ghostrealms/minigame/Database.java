@@ -1,10 +1,21 @@
 package net.ghostrealms.minigame;
 
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 /**
- * Created by James on 8/6/2015.
+ * Created by River on 8/6/2015.
  */
 public class Database {
-   enum SQL {
+    enum SQL {
         H2,
         MYSQL,
         SQLITE;
@@ -12,17 +23,11 @@ public class Database {
 
     private final JavaPlugin plugin;
     private final String db;
-
-    private SQL mode = SQL.H2;
-
+    private SQL mode = SQL.MYSQL;
     private Connection connection;
-
     private String mysql_user, mysql_pass, mysql_host, mysql_database;
-
     private int mysql_port;
-
     private String url;
-
     private ArrayList<String> updateQueue = new ArrayList<String>();
 
     public Database(String db, JavaPlugin plugin) {
@@ -38,11 +43,12 @@ public class Database {
             mysql_port = config.getInt("database.port");
         }
 
-        setupConnection();
     }
 
-    private void setupConnection() {
-
+    /**
+     * Attempts to connect to the database that is specified inside the of constructor.
+     */
+    public void setupConnection() {
         switch (mode) {
             default:
             case H2:
@@ -103,6 +109,9 @@ public class Database {
 
     }
 
+    /**
+     * Forces the connection to shutdown between the client(plugin) and the server(sql database).
+     */
     protected void flush() {
         forceRunQueue();
         try {
@@ -115,13 +124,16 @@ public class Database {
     }
 
     /**
-     * This will add an Update SQL statement to the queue to be updated upon calling
-     * #forceRunQueue*
+     * This will add an Update SQL statement to the queue to be updated upon calling.
+     * @param statement the statement to be queued
      */
     public void queue(String statement) {
         updateQueue.add(statement);
     }
 
+    /**
+     * Forces the running of the current queue to update.
+     */
     public void forceRunQueue() {
         for (String sql : updateQueue) {
             update(sql);
@@ -129,6 +141,11 @@ public class Database {
         }
     }
 
+    /**
+     * executes command via sql API.
+     * @param sql the sql node to execute
+     * @return status of execution
+     */
     public boolean execute(String sql) {
         try {
             Statement stmt = connection.createStatement();
@@ -142,6 +159,11 @@ public class Database {
 
     }
 
+    /**
+     * Queries command to execute and update via sql API.
+     * @param sql the sql node to execute
+     * @return status of execution
+     */
     public int executeUpdate(String sql) {
         try {
             Statement stmt = connection.createStatement();
@@ -154,6 +176,11 @@ public class Database {
         }
     }
 
+    /**
+     * Queries command to execute via sql API.
+     * @param sql the sql node to execute
+     * @return status of execution
+     */
     public ResultSet executeQuery(String sql) {
         try {
             Statement stmt = connection.createStatement();
@@ -166,35 +193,69 @@ public class Database {
         }
     }
 
+    /**
+     * Queries command to execute via sql API.
+     * @param sql the sql node to execute
+     * @return ResultSet
+     */
     public ResultSet query(String sql) {
         return executeQuery(sql);
     }
 
+    /**
+     * Executes updates variables in sql.
+     * @param sql the sql node to execute
+     * @return status of execution
+     */
     public int update(String sql) {
         return executeUpdate(sql);
     }
 
+    /**
+     * returns the current mode of the connection.
+     * @return mode
+     */
     public SQL getMode() {
         return mode;
     }
 
+    /**
+     * Sets the current mode of the sql connection.
+     * @param mode the mode that the plugin should be set to use
+     */
     protected void setMode(SQL mode) {
         this.mode = mode;
     }
 
+    /**
+     * @return connection.
+     */
     public Connection getConnection() {
         return connection;
     }
 
+    /**
+     * Sets the connection.
+     * @param connection the connection to the datbase service
+     */
     private void setConnection(Connection connection) {
         this.connection = connection;
     }
 
+    /**
+     * Returns database url.
+     * @return url
+     */
     public String getURL() {
         return url;
     }
 
+    /**
+     * Sets the database url.
+     * @param url the complete sql url
+     */
     protected void setURL(String url) {
         this.url = url;
     }
+
 }
