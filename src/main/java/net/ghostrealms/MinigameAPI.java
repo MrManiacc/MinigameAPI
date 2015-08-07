@@ -3,10 +3,10 @@ package net.ghostrealms;
 import net.ghostrealms.minigame.Minigame;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import org.mcstats.Metrics;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.logging.Level;
 
 /**
@@ -17,32 +17,32 @@ public class MinigameAPI extends JavaPlugin {
 
     private HashMap<String, Minigame> registeredMinigames;
 
-    /**
-     * Creates the instance and the Minigame HashMap handler.
-     */
+    @Override
     public void onEnable() {
         this.registeredMinigames = new HashMap<String, Minigame>();
         instance = this;
+        try {
+            Metrics metrics = new Metrics(this);
+            metrics.start();
+        } catch (IOException e) {
+            getLogger().log(Level.INFO, "Failed to report stats to MCStat's Plugin Metrics");
+        }
     }
 
-    /**
-     * Disables all of the minigames.
-     */
+    @Override
     public void onDisable() {
         for(Minigame minigame : registeredMinigames.values()) minigame.setEnabled(false);
     }
 
     /**
-     * Hooks into the MinigameAPI.
-     * @return instance
+     * Allows to hook into the minigameAPI
      */
     public static final MinigameAPI getInstance() {
         return instance;
     }
 
     /**
-     * Registers the minigame if it is not already registered.
-     * @param minigame the minigame to be registered
+     * Allows for a the registration of a minigame
      */
     public void registerMinigame(Minigame minigame) {
         if (!registeredMinigames.containsValue(minigame)){
@@ -50,12 +50,6 @@ public class MinigameAPI extends JavaPlugin {
             getLogger().log(Level.INFO, minigame.getName() + " v" + minigame.getVersion() + " has been loaded into the GhostRealmsMinigameAPI!");
         }
     }
-
-    /**
-     * Returns the minigame with the specific name.
-     * @param name the name of the minigame to get
-     * @return the minigame specified
-     */
     public Minigame getMinigame(String name){
         return registeredMinigames.get(name);
     }

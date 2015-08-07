@@ -32,8 +32,9 @@ The sole purpose of the MinigameAPI is to make the development process of miniga
 * Component system (see '[What is the Component System](#what-is-the-component-system)').
 * Timer component, which allows you to easily create a countdown component or anything that needs to be updated a certain amount of time per a tick.
 * Listener component, which allows to create sub listeners components that can be enabled or disabled. They can be registered from the Listener component it's self easily.
-* Added a Travis-CI build system
+* Added a Travis-CI build system.
 * Added Javadocs.
+* [MCStats](http://mcstats.org/plugin/RealmsMinigameAPI) support.
 
 # What is the Component System?
 The idea behind the component system is to make it easy for developers to be able to use certain features of the plugin all together. What does that mean? That means you can easily find another component based on the name. So what? Well with being able to get any component from another component is pretty powerful, let me give you an example. There is a countdown-timer component and you need to access it in a event listener class, well yes of course you just pass it in the constructor, but it gets sloppy sometimes. The component system allows for disabling certain components, reloading them etc. Each component has children of sub-components, they can be accessed via their name. You can cast those components to what ever you need to and easily access it. 
@@ -47,3 +48,6 @@ The idea behind the component system is to make it easy for developers to be abl
   1. MinigameAPI.getInstance().registerMinigame(new GetToTheZoneMinigame(this));
   2. MinigameAPI.getInstance().getMinigame(this.getDescription().getName()).setEnabled(true);
 6. When compiling your plugin, don't forget to have the 'Minigame(CurrentVersion).jar' plugin running on your server instance!
+
+# MCStats
+All plugin details and statistics can be viewed on our [MCStats Plugin Page](http://mcstats.org/plugin/RealmsMinigameAPI).
