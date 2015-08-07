@@ -1,4 +1,4 @@
-## MinigameAPI | v0.0.2
+## MinigameAPI | v0.0.3
 ![logo](https://cloud.githubusercontent.com/assets/4280960/9127886/134dad6c-3c8f-11e5-88b7-f36e3818e6ca.jpg)
 
 [![Build Status](https://travis-ci.org/MrManiacc/MinigameAPI.svg?branch=master)](https://travis-ci.org/MrManiacc/MinigameAPI)
