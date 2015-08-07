@@ -49,4 +49,4 @@ The idea behind the component system is to make it easy for developers to be abl
 6. When compiling your plugin, don't forget to have the 'Minigame(CurrentVersion).jar' plugin running on your server instance!
 
 # MCStats
-All plugin details and statistics can be viewed on our MCStats [Plugin Page](http://mcstats.org/plugin/RealmsMinigameAPI).
+All plugin details and statistics can be viewed on our [MCStats Plugin Page](http://mcstats.org/plugin/RealmsMinigameAPI).
