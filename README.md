@@ -1,4 +1,4 @@
-## MinigameAPI | v0.0.3
+## MinigameAPI | v0.0.3 - On hold
 ![logo](https://cloud.githubusercontent.com/assets/4280960/9127886/134dad6c-3c8f-11e5-88b7-f36e3818e6ca.jpg)
 
 [![Build Status](https://travis-ci.org/MrManiacc/MinigameAPI.svg?branch=master)](https://travis-ci.org/MrManiacc/MinigameAPI)
@@ -6,12 +6,13 @@
 MinigameAPI is a useful resource for Spigot/Bukkit developers to use. It aims to create a unified system for developers looking to make minigames.
 The sole purpose of the MinigameAPI is to make the development process of minigames, quick and easy (if possible).
 
-
 # Developers
 
 * [MrManiacc](https://github.com/MrManiacc) - Lead Developer
 * [AlphaTech](https://github.com/AlphaT3ch) - Contributor
 
+# Why on hold?
+This project has been put on to a temporary hold, because I (MrManiacc) am working on other projects on the [GhostRealms Network](https://github.com/GhostRealms). I will try to resume this project as soon as posiable. However, this project is delayed until further notice. This project may also be merged with the [RealmsLib](https://github.com/GhostRealms/RealmsLib). Thank you for your understanding.
 
 # Commands and Permissions
 * /enablemg <Minigame name> - Allows for users with the correct permission ```MinigameAPI.enablemg``` to enable a minigame, this will ask to force currently enabled minigame to shutdown (if there are any).
@@ -51,3 +52,6 @@ The idea behind the component system is to make it easy for developers to be abl
 
 # MCStats
 All plugin details and statistics can be viewed on our [MCStats Plugin Page](http://mcstats.org/plugin/RealmsMinigameAPI).
+
+# Why is this project on hold?
+
