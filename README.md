@@ -10,6 +10,7 @@ The sole purpose of the MinigameAPI is to make the development process of miniga
 
 * [MrManiacc](https://github.com/MrManiacc) - Lead Developer
 * [AlphaTech](https://github.com/AlphaT3ch) - Contributor
+* [CoderPluto](https://github.com/CoderPluto) - Developer
 
 # Why on hold?
 This project has been put on to a temporary hold, because I (MrManiacc) am working on other projects on the [GhostRealms Network](https://github.com/GhostRealms). I will try to resume this project as soon as posiable. However, this project is delayed until further notice. This project may also be merged with the [RealmsLib](https://github.com/GhostRealms/RealmsLib). Thank you for your understanding.
